@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: "Instrument Serif", serif;
+    --font-body: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #f8fafc;
+    color: #0f172a;
+    overflow-x: hidden;
+  }
+}
+
+.font-serif-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Atmospheric spatial grid */
+.tech-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Liquid glass sheen */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.liquid-glass-glow {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(14, 165, 233, 0.35);
+  box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.08), 0 0 20px -4px rgba(14, 165, 233, 0.15);
+}
+
+/* Radial spotlight mask */
+.spotlight-mask {
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(14, 165, 233, 0.5);
+}
+
+/* Solar System GPU-Accelerated Animations */
+.solar-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  pointer-events: none;
+  box-shadow: 0 0 16px rgba(14, 165, 233, 0.04);
+}
+
+.planet-revolver {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation-name: orbit-spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.planet-body {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  will-change: transform;
+}
+
+.planet-element {
+  will-change: transform;
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+
+/* Rare subtle shooting comet */
+.comet-meteor {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.8), transparent);
+  transform: rotate(-45deg);
+  animation: meteor-streak 14s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes meteor-streak {
+  0%, 80% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-45deg);
+  }
+  85% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+    transform: translate(-1000px, 1000px) rotate(-45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-1000px, 1000px) rotate(-45deg);
+  }
+}
+
+
